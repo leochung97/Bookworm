@@ -13,6 +13,7 @@
 		993196392B4DAA6000323D5C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 993196382B4DAA6000323D5C /* Preview Assets.xcassets */; };
 		996A5C6B2B4DD4EE00490B2E /* BindingNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996A5C6A2B4DD4EE00490B2E /* BindingNotes.swift */; };
 		996A5C6D2B4DDEF100490B2E /* TextEditorNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996A5C6C2B4DDEF100490B2E /* TextEditorNotes.swift */; };
+		996A5C6F2B4DE03B00490B2E /* SwiftDataNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996A5C6E2B4DE03B00490B2E /* SwiftDataNotes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		993196382B4DAA6000323D5C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		996A5C6A2B4DD4EE00490B2E /* BindingNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingNotes.swift; sourceTree = "<group>"; };
 		996A5C6C2B4DDEF100490B2E /* TextEditorNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorNotes.swift; sourceTree = "<group>"; };
+		996A5C6E2B4DE03B00490B2E /* SwiftDataNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataNotes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				993196332B4DAA5F00323D5C /* ContentView.swift */,
 				996A5C6A2B4DD4EE00490B2E /* BindingNotes.swift */,
 				996A5C6C2B4DDEF100490B2E /* TextEditorNotes.swift */,
+				996A5C6E2B4DE03B00490B2E /* SwiftDataNotes.swift */,
 				993196352B4DAA6000323D5C /* Assets.xcassets */,
 				993196372B4DAA6000323D5C /* Preview Content */,
 			);
@@ -146,6 +149,7 @@
 				993196342B4DAA5F00323D5C /* ContentView.swift in Sources */,
 				996A5C6D2B4DDEF100490B2E /* TextEditorNotes.swift in Sources */,
 				993196322B4DAA5F00323D5C /* BookwormApp.swift in Sources */,
+				996A5C6F2B4DE03B00490B2E /* SwiftDataNotes.swift in Sources */,
 				996A5C6B2B4DD4EE00490B2E /* BindingNotes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
