@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 /*
  SwiftData is a powerful, modern framework for storing, querying, and filtering data
@@ -14,11 +15,11 @@ import SwiftUI
  SwiftData implements all sorts of more advanced functionalities for when you really need to lean on it including: iCloud syncing, lazy loading of data, undo and redo, and much more
 */
 
-import SwiftData
-
-// Instead of @Observable, we want to use @Model to allow SwiftData to load and save students - we can now query, delete, and link them to other objects
-// This class is called a SwiftData model: it defines some kind of data we want to work with in our apps
-// @Model builds on top of the same observation system that @Observable uses, which means it works really well with SwiftUI
+/*
+ Instead of @Observable, we want to use @Model to allow SwiftData to load and save students - we can now query, delete, and link them to other objects
+ This class is called a SwiftData model: it defines some kind of data we want to work with in our apps
+ @Model builds on top of the same observation system that @Observable uses, which means it works really well with SwiftUI
+*/
 
 @Model
 class Student {
@@ -32,8 +33,30 @@ class Student {
 }
 
 struct SwiftDataNotes: View {
+    // @Query will atuomatically load students from its model container - it finds the main context that was placed into the environment and queries the container through there
+    @Query var students: [Student]
+    @Environment(\.modelContext) var modelContext
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List(students) { student in
+                Text(student.name)
+            }
+            .navigationTitle("Classroom")
+            .toolbar {
+                Button("Add") {
+                    let firstNames = ["Ginny", "Harry", "Hermione", "Luna", "Ron"]
+                    let lastNames = ["Granger", "Lovegood", "Potter", "Weasley"]
+
+                    let chosenFirstName = firstNames.randomElement()!
+                    let chosenLastName = lastNames.randomElement()!
+
+                    let student = Student(id: UUID(), name: "\(chosenFirstName) \(chosenLastName)")
+                    
+                    modelContext.insert(student)
+                }
+            }
+        }
     }
 }
 
