@@ -10,9 +10,24 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var books: [Book]
+    // SortDescriptor type -> you can input the property you want to sort on and optionally whether it should be reversed or not
+    // You can also add multiple SortDescriptors to first sort by Title and then by Author
+    @Query(sort: [
+        SortDescriptor(\Book.title),
+        SortDescriptor(\Book.author, order: .reverse)
+    ]) var books: [Book]
     
     @State private var showingAddScreen = false
+    
+    func deleteBooks(at offsets: IndexSet) {
+        for offset in offsets {
+            // find this book in our query
+            let book = books[offset]
+
+            // delete it from the context
+            modelContext.delete(book)
+        }
+    }
     
     var body: some View {
         NavigationStack {
@@ -33,6 +48,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .onDelete(perform: deleteBooks)
             }
            .navigationTitle("Bookworm")
            .navigationDestination(for: Book.self) { book in
@@ -43,6 +59,9 @@ struct ContentView: View {
                    Button("Add Book", systemImage: "plus") {
                        showingAddScreen.toggle()
                    }
+               }
+               ToolbarItem(placement: .topBarLeading) {
+                   EditButton()
                }
            }
            .sheet(isPresented: $showingAddScreen) {
